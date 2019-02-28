@@ -33,9 +33,10 @@
             "scripts": []
           },
           "configurations": {
-            "production": {
+            "production-it": {
               "optimization": true,
               "outputHashing": "all",
+              "outputPath": "dist/browser/it/",
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
@@ -48,7 +49,58 @@
                   "replace": "src/environments/environment.ts",
                   "with": "src/environments/environment.prod.ts"
                 }
-              ]
+              ],
+              "baseHref": "/it/",
+              "i18nFile": "src/locale/messages.it.xlf",
+              "i18nFormat": "xlf",
+              "i18nLocale": "it",
+              "i18nMissingTranslation": "error"
+            },
+            "production-en": {
+              "optimization": true,
+              "outputHashing": "all",
+              "outputPath": "dist/browser/en/",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "baseHref": "/en/",
+              "i18nFile": "src/locale/messages.en.xlf",
+              "i18nFormat": "xlf",
+              "i18nLocale": "en",
+              "i18nMissingTranslation": "error"
+            },
+            "production-fr": {
+              "optimization": true,
+              "outputHashing": "all",
+              "outputPath": "dist/browser/fr/",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "baseHref": "/fr/",
+              "i18nFile": "src/locale/messages.fr.xlf",
+              "i18nFormat": "xlf",
+              "i18nLocale": "en",
+              "i18nMissingTranslation": "error"
             }
           }
         },
@@ -96,7 +148,7 @@
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
-          "options": {            
+          "options": {
             "tsConfig": [
               "src/tsconfig.app.json"
             ],
