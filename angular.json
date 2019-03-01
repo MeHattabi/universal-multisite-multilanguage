@@ -3,32 +3,38 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ng-universal-demo": {
+    "ng-site1-demo": {
       "root": "",
       "projectType": "application",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/browser",
+            "outputPath": "dist/site1",
             "index": "src/index.html",
             "main": "src/main.ts",
             "tsConfig": "src/tsconfig.app.json",
             "polyfills": "src/polyfills.ts",
             "assets": [
               {
-                "glob": "**/*",
-                "input": "src/assets",
-                "output": "/assets"
+                "glob": "favicon.ico",
+                "input": "src/assets/themes/site1/images/",
+                "output": "/"
               },
               {
-                "glob": "favicon.ico",
-                "input": "src",
-                "output": "/"
+                "glob": "**/*",
+                "input": "src/assets/images",
+                "output": "/assets/images"
+              },
+              {
+                "glob": "**/*",
+                "input": "src/assets/themes/site1/images/",
+                "output": "/assets/images"
               }
             ],
             "styles": [
-              "src/styles.css"
+              "src/assets/scss/main.scss",
+              "src/assets/themes/site1/scss/theme.scss"
             ],
             "scripts": []
           },
@@ -36,7 +42,7 @@
             "production-it": {
               "optimization": true,
               "outputHashing": "all",
-              "outputPath": "dist/browser/it/",
+              "outputPath": "dist/site1/it/",
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
@@ -47,7 +53,7 @@
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
+                  "with": "src/environments/environment.site1.prod.ts"
                 }
               ],
               "baseHref": "/it/",
@@ -59,7 +65,7 @@
             "production-en": {
               "optimization": true,
               "outputHashing": "all",
-              "outputPath": "dist/browser/en/",
+              "outputPath": "dist/site1/en/",
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
@@ -70,7 +76,7 @@
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
+                  "with": "src/environments/environment.site1.prod.ts"
                 }
               ],
               "baseHref": "/en/",
@@ -82,7 +88,7 @@
             "production-fr": {
               "optimization": true,
               "outputHashing": "all",
-              "outputPath": "dist/browser/fr/",
+              "outputPath": "dist/site1/fr/",
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
@@ -93,32 +99,43 @@
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
+                  "with": "src/environments/environment.site1.prod.ts"
                 }
               ],
               "baseHref": "/fr/",
               "i18nFile": "src/locale/messages.fr.xlf",
               "i18nFormat": "xlf",
-              "i18nLocale": "en",
+              "i18nLocale": "fr",
               "i18nMissingTranslation": "error"
+            },
+            "dev": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.site1.dev.ts"
+                }
+              ]
             }
           }
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ng-universal-demo:build"
+            "browserTarget": "ng-site1-demo:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "ng-universal-demo:build:production"
+              "browserTarget": "ng-site1-demo:build:production-it"
+            },
+            "dev": {
+              "browserTarget": "ng-site1-demo:build:dev"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ng-universal-demo:build"
+            "browserTarget": "ng-site1-demo:build"
           }
         },
         "test": {
@@ -169,7 +186,7 @@
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
+                  "with": "src/environments/environment.site1.prod.ts"
                 }
               ]
             }
@@ -177,7 +194,198 @@
         }
       }
     },
-    "ng-universal-demo-e2e": {
+    "ng-site2-demo": {
+      "root": "",
+      "projectType": "application",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/site2",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "tsConfig": "src/tsconfig.app.json",
+            "polyfills": "src/polyfills.ts",
+            "assets": [
+              {
+                "glob": "favicon.ico",
+                "input": "src/assets/themes/site2/images/",
+                "output": "/"
+              },
+              {
+                "glob": "**/*",
+                "input": "src/assets/images",
+                "output": "/assets/images"
+              },
+              {
+                "glob": "**/*",
+                "input": "src/assets/themes/site2/images/",
+                "output": "/assets/images"
+              }
+            ],
+            "styles": [
+              "src/assets/scss/main.scss",
+              "src/assets/themes/site2/scss/theme.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production-it": {
+              "optimization": true,
+              "outputHashing": "all",
+              "outputPath": "dist/site2/it/",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.site2.prod.ts"
+                }
+              ],
+              "baseHref": "/it/",
+              "i18nFile": "src/locale/messages.it.xlf",
+              "i18nFormat": "xlf",
+              "i18nLocale": "it",
+              "i18nMissingTranslation": "error"
+            },
+            "production-en": {
+              "optimization": true,
+              "outputHashing": "all",
+              "outputPath": "dist/site2/en/",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.site2.prod.ts"
+                }
+              ],
+              "baseHref": "/en/",
+              "i18nFile": "src/locale/messages.en.xlf",
+              "i18nFormat": "xlf",
+              "i18nLocale": "en",
+              "i18nMissingTranslation": "error"
+            },
+            "production-fr": {
+              "optimization": true,
+              "outputHashing": "all",
+              "outputPath": "dist/site2/fr/",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.site2.prod.ts"
+                }
+              ],
+              "baseHref": "/fr/",
+              "i18nFile": "src/locale/messages.fr.xlf",
+              "i18nFormat": "xlf",
+              "i18nLocale": "en",
+              "i18nMissingTranslation": "error"
+            },
+            "dev": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.site2.dev.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "ng-site2-demo:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "ng-site2-demo:build:production-en"
+            },
+            "dev": {
+              "browserTarget": "ng-site2-demo:build:dev"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ng-site1-demo:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "src/test.ts",
+            "karmaConfig": "./karma.conf.js",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "src/tsconfig.spec.json",
+            "scripts": [],
+            "styles": [
+              "src/styles.css"
+            ],
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "src/assets",
+                "output": "/assets"
+              },
+              {
+                "glob": "favicon.ico",
+                "input": "src",
+                "output": "/"
+              }
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "src/tsconfig.app.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/server",
+            "main": "src/main.server.ts",
+            "tsConfig": "src/tsconfig.server.json"
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.site2.prod.ts"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "ng-site1-demo-e2e": {
       "root": "",
       "projectType": "application",
       "cli": {},
@@ -187,7 +395,7 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "./protractor.conf.js",
-            "devServerTarget": "ng-universal-demo:serve"
+            "devServerTarget": "ng-site1-demo:serve"
           }
         },
         "lint": {

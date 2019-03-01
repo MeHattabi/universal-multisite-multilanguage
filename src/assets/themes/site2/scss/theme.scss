@@ -1,0 +1,30 @@
+$theme-colors: (
+        text-color: #374249,
+        primary-color: #00afc4,
+        primary-dark: #008591,
+        light-color: #f1f1f1
+);
+
+body {
+  background: map-get($theme-colors, light-color);
+  font-family: Roboto, "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+
+.nav-links {
+  background: map-get($theme-colors, primary-dark);
+}
+
+.nav-links a {
+  color: map-get($theme-colors, light-color);
+  display: inline-block;
+  padding: 1rem;
+  margin-right: 3rem;
+  text-decoration: none;
+  font-weight: bold;
+  letter-spacing: 0.1rem;
+}
+
+.router-container {
+  border: 0.5rem map-get($theme-colors, primary-color) solid;
+  padding: 2rem;
+}

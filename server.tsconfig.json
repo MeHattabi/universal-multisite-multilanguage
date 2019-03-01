@@ -16,5 +16,7 @@
       "dom"
     ]
   },
-  "include": ["server.ts"]
+  "include": [
+    "server.ts"
+  ]
 }

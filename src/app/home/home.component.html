@@ -1,0 +1,12 @@
+<div>
+    <img src="assets/images/universal.png" alt="test-image" class="test-image">
+    <div>
+        <h3 i18n>Hello i18n!</h3>
+        <b>userLanguage:</b> {{userLanguage}}<br/>
+        <b>userCountry:</b> {{userCountry}}<br/>
+        <b>currency:</b>  {{number | currency:'EUR': 'symbol' }}<br/>
+        <b>Today is</b> {{today | date}}<br/>
+        <b>Or if you prefer,</b> {{today | date:'fullDate'}}<br/>
+        <b>The time is</b> {{today | date:'h:mm a z'}}<br/>
+    </div>
+</div>

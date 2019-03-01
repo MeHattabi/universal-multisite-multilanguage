@@ -1,0 +1,29 @@
+$theme-colors: (
+        text-color: #06060c,
+        primary-color: #DD0031,
+        primary-dark: #C3002F,
+        light-color: #FFFFFF
+);
+
+body {
+  background: map-get($theme-colors, light-color);
+  font-family: Arial, sans-serif;
+}
+
+.nav-links {
+  background: map-get($theme-colors, primary-dark);
+}
+
+.nav-links a {
+  color: map-get($theme-colors, light-color);
+  display: inline-block;
+  padding: 1rem;
+  margin-right: 1rem;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.router-container {
+  border: 0.5rem map-get($theme-colors, primary-color) solid;
+  padding: 2rem;
+}
