@@ -1,4 +1,11 @@
-# Angular Universal Starter
+#Angular Universal Multisite Multilanguage Starter
+
+This repo demonstrates the use of Angular Universal Server-side Rendering applied to a multilanguage and multisite application
+Starting from a simple application codebase it automatically generates two parallel sites with differents assets and contens
+and translated version of them using i18n and xliffmerge.
+The express server is configured to serve each site in a different port (4000 and 4001)
+
+### This project is based on Angular Universal Starter
 
 ![Angular Universal](https://angular.io/generated/images/marketing/concept-icons/universal.png)
 
@@ -14,11 +21,7 @@ We're utilizing packages from the [Angular Universal @nguniversal](https://githu
 ---
 
 ### Build Time Pre-rendering vs. Server-side Rendering (SSR)
-This repo demonstrates the use of 2 different forms of Server-side Rendering.
-
-**Pre-render** 
-* Happens at build time
-* Renders your application and replaces the dist index.html with a version rendered at the route `/`.
+This repo demonstrates the use of Server-side Rendering.
 
 **Server-side Rendering (SSR)**
 * Happens at runtime
@@ -30,17 +33,23 @@ This repo demonstrates the use of 2 different forms of Server-side Rendering.
 * `npm install` or `yarn`
 
 ### Development (Client-side only rendering)
-* run `npm run start` which will start `ng serve`
+* run `npm run start:site1` which will start `ng serve` for site 1 configuration
+* run `npm run start:site2` which will start `ng serve` for site 2 configuration
 
 ### Production (also for testing SSR/Pre-rendering locally)
-**`npm run build:ssr && npm run serve:ssr`** - Compiles your application and spins up a Node Express to serve your Universal application on `http://localhost:4000`.
+**`npm run build:ssr && npm run serve:ssr`** - Compiles your application and spins up a Node Express to serve your Universal application:
+* the site 1 wil be served on `http://localhost:4000`
+* the site 2 wil be served on `http://localhost:4001`
 
-**`npm run build:prerender && npm run serve:prerender`** - Compiles your application and prerenders your applications files, spinning up a demo http-server so you can view it on `http://localhost:8080`
-**Note**: To deploy your static site to a static hosting platform you will have to deploy the `dist/browser` folder, rather than the usual `dist`
+### Languages and translations
+**`npm run extract-i18n`** - extract all the i18n ready to translate strings and put its into to messages.xlf files located in  `src/locale`
+After a succesfull production build language specific static versions of the application will be placed in `dist/site1/en`  `dist/site1/it` ecc..
+The site 1 translated application will be served on :  `http://localhost:4000/en` `http://localhost:4000/it` `http://localhost:4000/fr`
+The site 2 translated application will be served on :  `http://localhost:4001/en` `http://localhost:4001/it` `http://localhost:4001/fr`
 
 
-## Universal "Gotchas"
-Moved to [/angular/universal/blob/master/docs/gotchas.md](https://github.com/angular/universal/blob/master/docs/gotchas.md)
+**Note**: To deploy your static site to a static hosting platform you will have to deploy the `dist/site1` or `dist/site2` folder, rather than the usual `dist`
+
 
 # License
 [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](/LICENSE)
