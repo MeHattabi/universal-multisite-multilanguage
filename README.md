@@ -1,4 +1,4 @@
-#Angular Universal Multisite Multilanguage Starter
+# Angular Universal Multisite Multilanguage Starter
 
 This repo demonstrates the use of Angular Universal Server-side Rendering applied to a multilanguage and multisite application
 Starting from a simple application codebase it automatically generates two parallel sites with differents assets and contens
