@@ -5,9 +5,10 @@ Starting from a simple application codebase it automatically generates two paral
 and translated version of them using i18n and xliffmerge.
 The express server is configured to serve each site in a different port (4000 and 4001)
 
-### This project is based on Angular Universal Starter
-
 ![Angular Universal](https://angular.io/generated/images/marketing/concept-icons/universal.png)
+![Angular i18n](https://angular.io/generated/images/marketing/concept-icons/i18n.png)
+
+### This project is based on Angular Universal Starter
 
 A minimal Angular starter for Universal JavaScript using the [Angular CLI](https://github.com/angular/angular-cli)
 If you're looking for the Angular Universal repo go to [**angular/universal**](https://github.com/angular/universal)  
